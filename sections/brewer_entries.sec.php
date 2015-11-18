@@ -412,7 +412,7 @@ do {
                
 	  $scoresheets =  scoresheet_check($row_log['id']);
                 foreach ($scoresheets as $scoresheet) {
-	      	$entry_output .= "<a href= \"" . $scoresheet."\"> Download </a>";
+	      	$entry_output .= "<a href= \"" ."scoresheets/". $scoresheet."\"> Download </a>";
 		}
 		$entry_output .= "</td>";
 	       
