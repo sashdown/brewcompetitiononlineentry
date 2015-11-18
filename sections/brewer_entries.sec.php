@@ -405,9 +405,21 @@ do {
 		if ((NHC) && ($prefix != "final_")) $enter_output .= $admin_adv;
 		$entry_output .= "</td>";
 		
+
+          	
+	  if ($action == "print") $entry_output .= "<td class='dataList bdr1B'>";
+	else $entry_output .= "<td class='dataList1'>";
+               
+	  $scoresheets = array("55.pdf");
+ // scoresheet_check($row_log['id']);
+                foreach ($scoresheets as $scoresheet) {
+	      	$entry_output .= "<a href= \"" . $scoresheet."\"> Download </a>";
+		}
+		$entry_output .= "</td>";
+	       
 	}
 	
-	
+
 	// Build Actions Links
 	
 	// Edit
