@@ -2251,6 +2251,21 @@ function score_check($id,$judging_scores_db_table) {
 	return $r;
 }
 
+function scoresheet_check($id) {
+
+           return array("55.pdf");
+  	require(CONFIG.'config.php');
+	mysql_select_db($database, $brewing);
+	$query_scores = sprintf("SELECT path FROM scoresheets WHERE eid='%s'",$id);
+	$scores = mysql_query($query_scores, $brewing) or die(mysql_error());
+	$row_scores = mysql_fetch_assoc($scores);
+	
+	$r = $row_scores['scoreEntry'];
+	return $r;
+
+}
+
+
 function minibos_check($id,$judging_scores_db_table) {
 	require(CONFIG.'config.php');
 	mysql_select_db($database, $brewing);
