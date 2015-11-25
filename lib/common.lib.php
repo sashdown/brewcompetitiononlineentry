@@ -2254,11 +2254,16 @@ function score_check($id,$judging_scores_db_table) {
 function scoresheet_check($id) {
   	require(CONFIG.'config.php');
 	mysql_select_db($database, $brewing);
+
 	$query_scores = sprintf("SELECT path FROM scoresheets WHERE eid='%s'",$id);
 	$scores = mysql_query($query_scores, $brewing) or die(mysql_error());
-	$row_scores = mysql_fetch_assoc($scores);
-	
-	$r = $row_scores['scoreEntry'];
+
+	$r = array();
+
+	 while ($row = mysql_fetch_assoc($scores)) {
+	   array_push($r, $row['path']);
+	    }
+       
 	return $r;
 
 }
